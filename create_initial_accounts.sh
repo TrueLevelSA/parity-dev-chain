@@ -6,7 +6,7 @@ set -u
 function create_new_accounts
 {
     # cd to the script directory
-    local readonly PATH_TO_SCRIPT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+    local -r PATH_TO_SCRIPT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
     source $PATH_TO_SCRIPT/cleanup_parity.sh # this will cleanly kill all children processes
     pushd $PATH_TO_SCRIPT/init_config &> /dev/null # silently cd
 
