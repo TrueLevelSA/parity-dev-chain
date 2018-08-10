@@ -6,6 +6,8 @@ Based on [https://github.com/paritytech/wiki/blob/master/Demo-PoA-tutorial.md](h
 
 ## Requirements
 - `parity`
+- `bash`
+- `python`
 
 ## Init
 
