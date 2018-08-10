@@ -7,7 +7,7 @@ function create_new_accounts
 {
     # cd to the script directory
     local readonly PATH_TO_SCRIPT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-    pushd $PATH_TO_SCRIPT/init &> /dev/null # silently cd
+    pushd $PATH_TO_SCRIPT/init_config &> /dev/null # silently cd
 
     echo "Starting Parity in background."
     parity --config node0.toml &
