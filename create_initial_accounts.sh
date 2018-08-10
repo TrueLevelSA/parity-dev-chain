@@ -7,6 +7,7 @@ function create_new_accounts
 {
     # cd to the script directory
     local readonly PATH_TO_SCRIPT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+    source $PATH_TO_SCRIPT/cleanup_parity.sh # this will cleanly kill all children processes
     pushd $PATH_TO_SCRIPT/init_config &> /dev/null # silently cd
 
     echo "Starting Parity in background."
@@ -34,17 +35,6 @@ function create_new_accounts
         grep -q '0x00aa39d30f0d20ff03a22ccfc30b7efbfca597c2' \
         && echo "Address is valid" \
         || echo "Address is not valid"
-
-    echo "Stopping parity."
-
-    # sends a SIGINT to all the children process from this
-    # SIGINT is equivalant to ^C
-    # $$ returns curent PID
-    pkill --signal SIGINT -P $$
-
-
-    echo "Waiting for parity instances to terminate."
-    wait
 
     # get back to where the script was before the call to this function
     popd &> /dev/null
