@@ -13,6 +13,8 @@ function cleanup_parity
 
     #waits for all children to terminate
     wait
+
+    echo "Everything should have finished gracefully."
 }
 
 # calls cleanup_parity when EXITting the shell
