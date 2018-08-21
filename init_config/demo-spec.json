@@ -1,12 +1,9 @@
 {
     "name": "DemoPoACustom",
     "engine": {
-        "authorityRound": {
+        "tlengine": {
             "params": {
-                "stepDuration": "5",
-                "validators" : {
-                    "list": []
-                }
+                "unused": 5
             }
         }
     },
@@ -23,11 +20,8 @@
         "eip658Transition": 0
     },
     "genesis": {
-        "seal": {
-            "authorityRound": {
-                "step": "0x0",
-                "signature": "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-            }
+        "seal":{
+            "generic": "0x0"
         },
         "difficulty": "0x20000",
         "gasLimit": "0x5B8D80"

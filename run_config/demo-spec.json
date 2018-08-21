@@ -1,15 +1,9 @@
 {
     "name": "DemoPoACustom",
     "engine": {
-        "authorityRound": {
+        "tlengine": {
             "params": {
-                "stepDuration": "5",
-                "validators" : {
-                    "list": [
-                        "0x00Bd138aBD70e2F00903268F3Db08f2D25677C9e",
-                        "0x00Aa39d30F0D20FF03a22cCfc30B7EfbFca597C2"
-                    ]
-                }
+                "unused": 5
             }
         }
     },
@@ -27,10 +21,7 @@
     },
     "genesis": {
         "seal": {
-            "authorityRound": {
-                "step": "0x0",
-                "signature": "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-            }
+            "generic": "0x0"
         },
         "difficulty": "0x20000",
         "gasLimit": "0x5B8D80"
