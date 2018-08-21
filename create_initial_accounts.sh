@@ -10,9 +10,11 @@ function create_new_accounts
     source $PATH_TO_SCRIPT/cleanup_parity.sh # this will cleanly kill all children processes
     pushd $PATH_TO_SCRIPT/init_config &> /dev/null # silently cd
 
+    local -r PARITY_EXE_PATH=../parity-ethereum/target/debug/parity
+
     echo "Starting Parity in background."
-    parity --config node0.toml &
-    parity --config node1.toml &
+    $PARITY_EXE_PATH --config node0.toml &
+    $PARITY_EXE_PATH --config node1.toml &
 
     echo "Waiting for parity to be started."
     # hopefully 10 sec is enough

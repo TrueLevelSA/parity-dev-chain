@@ -1,5 +1,5 @@
 {
-    "name": "DemoPoA",
+    "name": "DemoPoACustom",
     "engine": {
         "authorityRound": {
             "params": {
