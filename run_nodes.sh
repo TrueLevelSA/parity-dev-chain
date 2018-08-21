@@ -7,15 +7,7 @@ function get_enode0
 {
     local -r JSON=$(curl --data '{"jsonrpc":"2.0","method":"parity_enode","params":[],"id":0}' -H "Content-Type: application/json" -X POST localhost:8540 -s)
 
-    # not that great but it's easy, readable, and it works so...
-    local -r PYTHON_CODE=$(cat <<EOF
-import sys, json
-j = json.load(sys.stdin)
-print(j['result'])
-EOF
-)
-
-    local -r ENODE=$(echo $JSON | python -c"$PYTHON_CODE" )
+    local -r ENODE=$(echo $JSON | python ../get_json_content.py result)
 
     echo $ENODE
 }
