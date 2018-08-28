@@ -16,7 +16,7 @@ function run_nodes
 {
     # cd to the script directory
     local -r PATH_TO_SCRIPT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-    source $PATH_TO_SCRIPT/cleanup_parity.sh # this will cleanly kill all children processes
+    source $PATH_TO_SCRIPT/tools/cleanup_parity.sh # this will cleanly kill all children processes
     pushd $PATH_TO_SCRIPT/config_run &> /dev/null # silently cd
 
     local -r PARITY_EXE_PATH=../parity-ethereum/target/debug/parity
