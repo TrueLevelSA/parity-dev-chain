@@ -6,13 +6,9 @@ Based on [https://github.com/paritytech/wiki/blob/master/Demo-PoA-tutorial.md](h
 
 ## Requirements
 - Rust's `cargo`
+- `parity`
 - `bash`
 - `python`
-
-## Custom Parity compiling
-- `git submodule init`
-- `git submodule update --remote`
-- Run `build_parity.sh`
 
 ## Init
 

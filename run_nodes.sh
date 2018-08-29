@@ -19,7 +19,7 @@ function run_nodes
     source $PATH_TO_SCRIPT/tools/cleanup_parity.sh # this will cleanly kill all children processes
     pushd $PATH_TO_SCRIPT/config_run &> /dev/null # silently cd
 
-    local -r PARITY_EXE_PATH=../parity-ethereum/target/debug/parity
+    local -r PARITY_EXE_PATH=parity
 
     echo "Starting Parity in background."
     $PARITY_EXE_PATH --config node0.toml &
