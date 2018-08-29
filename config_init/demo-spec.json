@@ -6,7 +6,9 @@
                 "stepDuration": "5",
                 "validators" : {
                     "list": []
-                }
+                },
+                "emptyStepsTransition": 1,
+                "maximumEmptySteps": 1
             }
         }
     },
