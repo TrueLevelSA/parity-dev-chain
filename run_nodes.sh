@@ -23,7 +23,7 @@ function run_nodes
 
     echo "Starting Parity in background."
     $PARITY_EXE_PATH --config node0.toml &
-    $PARITY_EXE_PATH --config node1.toml &
+    ($PARITY_EXE_PATH --config node1.toml & ) # &> /dev/null
 
     echo "Waiting for parity to be started."
     # hopefully 10 sec is enough
