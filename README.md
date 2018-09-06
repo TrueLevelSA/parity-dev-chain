@@ -28,3 +28,8 @@ This creates two nodes:
 ## Run
 
 - Run `run_nodes.sh`
+
+## Send commands
+
+- Run `send_eth_to_auth0.sh` in order to transfer `0xdeadbeef0001` wei from the user's account to the node0's authority account.
+- Run `send_eth_to_auth1.sh` in order to transfer `0x1337` wei from the user's account to the node1's authority account.
