@@ -3,7 +3,8 @@
     "engine": {
         "tlengine": {
             "params": {
-                "value": 1337
+                "value": 1337,
+                "validators": {}
             }
         }
     },
