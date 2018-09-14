@@ -4,7 +4,7 @@
         "tlengine": {
             "params": {
                 "value": 1337,
-                "validators": {}
+                "validators": [] 
             }
         }
     },

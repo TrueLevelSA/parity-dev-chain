@@ -4,10 +4,10 @@
         "tlengine": {
             "params": {
                 "value": 13,
-                "validators": {
-                    "0x00Bd138aBD70e2F00903268F3Db08f2D25677C9e": 1.2,
-                    "0x00Aa39d30F0D20FF03a22cCfc30B7EfbFca597C2": 0.2
-                }
+                "validators": [
+                    { "address": "0x00Bd138aBD70e2F00903268F3Db08f2D25677C9e", "weight":  1.2},
+                    { "address": "0x00Aa39d30F0D20FF03a22cCfc30B7EfbFca597C2", "weight": 0.2}
+                ]
             }
         }
     },
