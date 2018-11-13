@@ -9,7 +9,7 @@ apis = ["web3", "eth", "net", "personal", "parity", "parity_set", "traces", "rpc
 [websockets]
 port = 8450
 [account]
-password = ["node.pwds"]
+password = ["node0.pwd"]
 [mining]
 engine_signer = "0x00Bd138aBD70e2F00903268F3Db08f2D25677C9e"
 # reseal_on_txs = "none"

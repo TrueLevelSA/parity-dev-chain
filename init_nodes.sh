@@ -17,8 +17,8 @@ function create_new_accounts
     $PARITY_EXE_PATH --config node1.toml &
 
     echo "Waiting for parity to be started."
-    # hopefully 10 sec is enough
-    sleep 10
+    # hopefully 2 sec is enough
+    sleep 2
 
     echo "Creating first authority address."
     curl --data '{"jsonrpc":"2.0","method":"parity_newAccountFromPhrase","params":["node0", "node0"],"id":0}' -H "Content-Type: application/json" -X POST localhost:8540 -s | \
@@ -26,11 +26,18 @@ function create_new_accounts
         && echo "Address is valid" \
         || echo "Address is not valid"
 
-    echo "Creating first user address."
+    echo "Creating first user address on first parity instance."
     curl --data '{"jsonrpc":"2.0","method":"parity_newAccountFromPhrase","params":["user", "user"],"id":0}' -H "Content-Type: application/json" -X POST localhost:8540 -s | \
         grep -q '0x004ec07d2329997267ec62b4166639513386f32e' \
         && echo "Address is valid" \
         || echo "Address is not valid"
+
+
+    echo "Creating first user address on second parity instance."
+    curl --data '{"jsonrpc":"2.0","method":"parity_newAccountFromPhrase","params":["user", "user"],"id":0}' -H "Content-Type: application/json" -X POST localhost:8541 -s | \
+        grep -q '0x004ec07d2329997267ec62b4166639513386f32e' \
+        && echo "Address is valid" \
+            || echo "Address is not valid"
 
     echo "Creating second authority address."
     curl --data '{"jsonrpc":"2.0","method":"parity_newAccountFromPhrase","params":["node1", "node1"],"id":0}' -H "Content-Type: application/json" -X POST localhost:8541 -s | \
