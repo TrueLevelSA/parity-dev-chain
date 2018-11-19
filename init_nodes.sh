@@ -27,23 +27,22 @@ function create_new_accounts
         || echo "Address is not valid"
 
     echo "Creating first user address on first parity instance."
-    curl --data '{"jsonrpc":"2.0","method":"parity_newAccountFromPhrase","params":["user", "user"],"id":0}' -H "Content-Type: application/json" -X POST localhost:8540 -s | \
-        grep -q '0x004ec07d2329997267ec62b4166639513386f32e' \
+    curl --data '{"jsonrpc":"2.0","method":"parity_newAccountFromPhrase","params":["user00", "user00"],"id":0}' -H "Content-Type: application/json" -X POST localhost:8540 -s | \
+        grep -q '0x007b9a37d838df0849689a47c7204aaea59dac62' \
         && echo "Address is valid" \
         || echo "Address is not valid"
-
-
-    echo "Creating first user address on second parity instance."
-    curl --data '{"jsonrpc":"2.0","method":"parity_newAccountFromPhrase","params":["user", "user"],"id":0}' -H "Content-Type: application/json" -X POST localhost:8541 -s | \
-        grep -q '0x004ec07d2329997267ec62b4166639513386f32e' \
-        && echo "Address is valid" \
-            || echo "Address is not valid"
 
     echo "Creating second authority address."
     curl --data '{"jsonrpc":"2.0","method":"parity_newAccountFromPhrase","params":["node1", "node1"],"id":0}' -H "Content-Type: application/json" -X POST localhost:8541 -s | \
         grep -q '0x00aa39d30f0d20ff03a22ccfc30b7efbfca597c2' \
         && echo "Address is valid" \
         || echo "Address is not valid"
+
+    echo "Creating first user address on second parity instance."
+    curl --data '{"jsonrpc":"2.0","method":"parity_newAccountFromPhrase","params":["user10", "user10"],"id":0}' -H "Content-Type: application/json" -X POST localhost:8541 -s | \
+        grep -q '0x002227d6a35ed31076546159061bd5d3fefe9f0a' \
+        && echo "Address is valid" \
+            || echo "Address is not valid"
 
     # get back to where the script was before the call to this function
     popd &> /dev/null
