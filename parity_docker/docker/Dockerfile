@@ -49,10 +49,8 @@ EXPOSE 30303/udp
 
 WORKDIR /run
 
-COPY ./wait_for_signal.sh ./node.pwd ./node.toml ./demo-spec.json .
+COPY ./wait_for_signal.sh ./node.pwd ./node.toml ./demo-spec.json ./
 
+# TODO: change user
 
 ENTRYPOINT [ "/bin/bash",  "./wait_for_signal.sh"]
-
-#ENTRYPOINT ["/build/parity/target/release/parity"]
-#CMD ["--chain=kovan"]

@@ -1,0 +1,19 @@
+version: "3"
+services:
+
+  parity:
+    image: tl:parity
+    build: ./docker
+    #    ports:
+        #      - "30303:30303"
+        #      - "8545:8545"
+        #      - "8546:8546"
+        #    networks:
+        #      - parity_network
+
+        ## empty network but all containers will have the same one
+        #networks:
+        #  parity_network:
+        #      name: parity_network
+        #      #    driver: default 
+
