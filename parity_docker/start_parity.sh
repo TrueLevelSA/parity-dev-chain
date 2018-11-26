@@ -1,7 +1,12 @@
 #!/bin/bash
 
 function start_parity {
-    docker-compose exec -d parity parity --config node.toml --unsafe-expose
+    local -r NB_CONTAINERS=$(docker-compose ps -q | wc -l)
+
+    for INDEX in $(seq 1 $NB_CONTAINERS)
+    do
+        docker-compose exec -d --index=${INDEX} parity parity --config node.toml --unsafe-expose
+    done
 }
 
 start_parity
