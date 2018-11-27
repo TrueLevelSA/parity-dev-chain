@@ -2,13 +2,13 @@
 
 function get_docker_ip {
     rm -f docker_ips.txt
-    docker-compose ps -q | while read -r line || [[ -n "$line"  ]]
+
+    for DOCKER_ID in $(docker-compose ps -q parity)
     do
-        local docker_id="$line"
-        echo "Getting IP from $docker_id"
-        local docker_ip=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $docker_id)
-        echo "IP is: $docker_ip"
-        echo $docker_ip >> docker_ips.txt
+        echo "Getting IP from $DOCKER_ID"
+        local DOCKER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $DOCKER_ID)
+        echo "IP is: $DOCKER_IP"
+        echo $DOCKER_IP >> docker_ips.txt
     done
 }
 
