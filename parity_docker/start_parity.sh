@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function start_parity {
-    local -r NB_CONTAINERS=$(docker-compose ps -q | wc -l)
+    local -r NB_CONTAINERS=$(docker-compose ps -q parity | wc -l)
 
     for INDEX in $(seq 1 $NB_CONTAINERS)
     do
