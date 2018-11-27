@@ -1,13 +1,6 @@
 #!/bin/bash
 
 function generate_validators_and_accounts {
-    local -r NUMBER_TO_GENERATE=$1
-
-    ./start_dockers.sh 1
-    ./start_parity.sh
-    ./get_ips.sh
-
-    local -r IP=$(cat docker_ips.txt)
 
     local -r USER_PATTERN=user
     local -r USER_PWD_PATTERN=$USER_PATTERN
@@ -15,19 +8,18 @@ function generate_validators_and_accounts {
     local -r NODE_PATTERN=node
     local -r NODE_PWD_PATTERN=$NODE_PATTERN
 
-    python3 generate_validators_and_accounts.py $NUMBER_TO_GENERATE $IP $USER_PATTERN $USER_PWD_PATTERN $NODE_PATTERN $NODE_PWD_PATTERN
+    local I=1
 
-    ./stop_dockers.sh
+    for DOCKER_ID in $(docker-compose ps -q parity)
+    do
+        local DOCKER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $DOCKER_ID)
+        echo "Generating account for ${USER_PATTERN}$I ${USER_PWD_PATTERN}$I"
+        python3 generate_single_account.py $DOCKER_IP ${USER_PATTERN}$I ${USER_PWD_PATTERN}$I
+        echo "Generating account for ${NODE_PATTERN}$I ${NODE_PWD_PATTERN}$I"
+        python3 generate_single_account.py $DOCKER_IP ${NODE_PATTERN}$I ${NODE_PWD_PATTERN}$I
+        I=$((I+1))
+    done
 }
 
-if [ $# != 1 ]
-then
-    echo "Usage: $0 number_of_containers
-    example: $0 5"
-    exit
-else
-    generate_validators_and_accounts $1
-    exit
-fi
-
+generate_validators_and_accounts
 

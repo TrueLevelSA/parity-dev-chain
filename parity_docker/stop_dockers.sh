@@ -1,10 +1,10 @@
 #!/bin/bash
 
 function stop_dockers {
-    local -r NB_CONTAINERS=$(docker-compose ps -q parity | wc -l)
-    for INDEX in $(seq 1 $NB_CONTAINERS)
+    for DOCKER_ID in $(docker-compose ps -q parity)
     do
-        docker-compose exec  --index=${INDEX} parity touch /tmp/kill_container
+        echo "Sending stop signal to $DOCKER_ID"
+        docker exec $DOCKER_ID touch /tmp/kill_container
     done
 
     # containers have a sleep time of 2 secs
