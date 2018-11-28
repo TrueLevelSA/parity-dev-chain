@@ -3,11 +3,10 @@
 function generate_validators_and_accounts {
     local -r NUMBER_TO_GENERATE=$1
 
-    ./start_dockers.sh 1
-    ./start_parity.sh
-    ./get_ips.sh
+    local -r DOCKER_ID=$(docker run -d tl:parity)
 
-    local -r IP=$(cat docker_ips.txt)
+    docker exec -d $DOCKER_ID parity --config node.toml --unsafe-expose
+    local -r IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $DOCKER_ID)
 
     local -r USER_PATTERN=user
     local -r USER_PWD_PATTERN=$USER_PATTERN
@@ -17,7 +16,10 @@ function generate_validators_and_accounts {
 
     python3 pregenerate_validators_and_accounts.py $NUMBER_TO_GENERATE $IP $USER_PATTERN $USER_PWD_PATTERN $NODE_PATTERN $NODE_PWD_PATTERN
 
-    ./stop_dockers.sh
+    docker exec $DOCKER_ID touch /tmp/kill_container
+    sleep 3
+    docker stop $DOCKER_ID
+    docker rm $DOCKER_ID
 }
 
 if [ $# != 1 ]
