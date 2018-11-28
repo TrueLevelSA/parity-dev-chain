@@ -3,6 +3,9 @@ chain = "demo-spec.json"
 base_path = "/tmp/parity0"
 [network]
 port = 30303
+min_peers = 1
+discovery = false
+reserver_only = true
 [rpc]
 port = 8545
 apis = ["web3", "eth", "net", "personal", "parity", "parity_set", "traces", "rpc", "parity_accounts"]
