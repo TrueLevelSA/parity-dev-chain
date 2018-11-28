@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
 """Connects multiple parity nodes with each others."""
-import sys
 import argparse
 from requests import post
+import re
+
+
+RE_IP = r"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b"
 
 
 def get_enode(ip):
+    if re.match(RE_IP, ip) is None:
+        print('{} is not an ip'.format(ip))
+        return None
+
     url = "http://{}:8545".format(ip)
     data = {
         "jsonrpc": "2.0",
@@ -49,14 +56,17 @@ layouts = {
 def main():
     parser = argparse.ArgumentParser(description='Connects parity nodes.')
     parser.add_argument('--layout', choices=layouts.keys(), required=True)
-    parser.add_argument('filename')
+    parser.add_argument('filename',
+                        help='text file with each node ip on different lines')
     args = parser.parse_args()
 
     enodes = []
     with open(args.filename, 'r') as f:
         for line in f.readlines():
             ip = line.strip()
-            enodes.append((ip, get_enode(ip.strip())))
+            enode = get_enode(ip)
+            if enode is not None:
+                enodes.append((ip, enode))
 
     for enode_a, enode_b in layouts[args.layout](len(enodes)):
         if connect_enode(enodes[enode_a], enodes[enode_b]):
