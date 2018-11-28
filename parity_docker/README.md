@@ -1,3 +1,25 @@
+# Usage
+- Build the docker image: 
+  `build_image.sh`
+- Prepare accounts: 
+  `pregenerate_validators_and_accoungs.sh $NUMBER_NODES`
+> As long as you're not adding more accounts than `$NUMBER_NODES`, you can start here if you restart
+- Start containers: 
+  `start_dockers.sh $NUMBER_NODES`
+- Update config files for parity using the pregenerated stuff and start parity:
+  `update_parity_config.sh`
+- Generate accounts that match the pregenerated ones:
+  `generate_validators_and_accounts.sh`
+- Get the dockers ips and connect them: 
+  - `get_ips.sh`
+  - `connect_nodes.py --layout ring docker_ips.txt`
+
+## Cleanup
+- Stop the containers:
+  `stop_dockers.sh`
+- Stop and remove containers:
+  `clear_dockers.sh`
+
 # Scripts
 
 ## `build_image.sh`
