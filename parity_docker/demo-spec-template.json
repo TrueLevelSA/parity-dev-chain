@@ -5,6 +5,7 @@
             "params": {
                 "fault_tolerance_thr": 13.0,
                 "validators": [
+                    { "address": "0x0000000000000000000000000000000000000000", "weight":  10},
                     REPLACE_VALIDATORS
                 ]
             }
