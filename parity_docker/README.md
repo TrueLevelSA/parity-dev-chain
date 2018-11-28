@@ -1,5 +1,7 @@
 # Usage
-- Build the docker image: 
+- Create a password for your nodes:
+  `echo MYSUPERSECREPASSWORD > docker/node.pwd`
+- Build the docker image (and go grab a coffee): 
   `build_image.sh`
 - Prepare accounts: 
   `pregenerate_validators_and_accoungs.sh $NUMBER_NODES`
