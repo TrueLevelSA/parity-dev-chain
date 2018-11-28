@@ -5,7 +5,6 @@ base_path = "/tmp/parity0"
 port = 30303
 min_peers = 1
 discovery = false
-reserved_only = true
 [rpc]
 port = 8545
 apis = ["web3", "eth", "net", "personal", "parity", "parity_set", "traces", "rpc", "parity_accounts"]
