@@ -8,3 +8,7 @@ port = 8545
 apis = ["web3", "eth", "net", "personal", "parity", "parity_set", "traces", "rpc", "parity_accounts"]
 [websockets]
 port = 8546
+[misc]
+logging = "info"
+log_file = "/var/log/parity.log"
+color = true
