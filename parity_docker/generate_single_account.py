@@ -17,7 +17,7 @@ def parse_args():
         raise ValueError
 
 def main():
-    """ uses the IP, the username and the password passed as arguments
+    """ uses the username and the password passed as arguments
     to create a new account on the parity node at IP"""
     try:
         ip, user, pwd = parse_args()

@@ -5,7 +5,8 @@
   `build_image.sh`
 - Prepare accounts: 
   `pregenerate_validators_and_accoungs.sh $NUMBER_NODES`
-> As long as you're not adding more accounts than `$NUMBER_NODES`, you can start here if you restart
+> As long as you're not adding more accounts than the previous `$NUMBER_NODES` 
+> (and have no new code on the TL parity fork), you can restart from here
 - Start containers: 
   `start_dockers.sh $NUMBER_NODES`
 - Update config files for parity using the pregenerated stuff and start parity:
