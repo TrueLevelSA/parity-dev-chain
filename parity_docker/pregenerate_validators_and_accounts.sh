@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# generates accounts on all the nodes in the docker-compose "cluster"
+# one standard and one validator account
+# the used patterns must match the ones in pregenerate_validators_and_accounts.sh
 function generate_validators_and_accounts {
     local -r NUMBER_TO_GENERATE=$1
 

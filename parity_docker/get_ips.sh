@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# gets the IPs of all parity nodes in the docker-compose "cluster"
+# writes them in ./docker_ips.txt (file is overwritten)
 function get_docker_ip {
     rm -f docker_ips.txt
 

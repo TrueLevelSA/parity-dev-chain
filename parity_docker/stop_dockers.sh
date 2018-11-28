@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# stops parity, then stops the containers
 function stop_dockers {
     for DOCKER_ID in $(docker-compose ps -q parity)
     do

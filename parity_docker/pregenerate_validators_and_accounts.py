@@ -3,6 +3,7 @@ import json
 from requests import post
 
 class Config:
+    """ basic config class """
     _RPC_PORT = "8545"
     _CONFIG_FILE_TEMPLATE = "demo-spec-template.json"
     _CONFIG_FILE_OUTPUT = "demo-spec.json"
@@ -58,6 +59,10 @@ def generate_all(number_accounts, ip, user_pattern, user_pwd_pattern, node_patte
     return list_users, list_nodes
 
 def save(list_users, list_nodes):
+    """ reads the Config._CONFIG_FILE_TEMPLATE, replaces Config._REPLACE_VALIDATORS_TEXT
+    with accounts in list_nodes, replaces Config._REPLACE_ACCOUNTS_TEXT with accounts in
+    list_ndoes and list_users. writes everything into Config._CONFIG_FILE_OUTPUT."""
+
     data = None
     with open(Config._CONFIG_FILE_TEMPLATE, 'r') as f:
         data = f.read()
@@ -90,6 +95,8 @@ def generate_and_save(number_accounts, ip, user_pattern, user_pwd_pattern, node_
     save(list_users, list_nodes)
 
 def main():
+    """ creates a number of accounts on the parity node specified by it's IP using the user and node patterns
+    everything is output to a json parity configuration file"""
     try:
         number_accounts, ip, user_pattern, user_pwd_pattern, node_pattern, node_pwd_pattern = parse_args()
     except ValueError:
