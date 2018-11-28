@@ -15,7 +15,7 @@ function generate_validators_and_accounts {
     local -r NODE_PATTERN=node
     local -r NODE_PWD_PATTERN=$NODE_PATTERN
 
-    python3 generate_validators_and_accounts.py $NUMBER_TO_GENERATE $IP $USER_PATTERN $USER_PWD_PATTERN $NODE_PATTERN $NODE_PWD_PATTERN
+    python3 pregenerate_validators_and_accounts.py $NUMBER_TO_GENERATE $IP $USER_PATTERN $USER_PWD_PATTERN $NODE_PATTERN $NODE_PWD_PATTERN
 
     ./stop_dockers.sh
 }
@@ -29,5 +29,3 @@ else
     generate_validators_and_accounts $1
     exit
 fi
-
-
