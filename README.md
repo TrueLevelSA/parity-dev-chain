@@ -12,12 +12,12 @@ Based on [https://github.com/paritytech/wiki/blob/master/Demo-PoA-tutorial.md](h
 ## Custom Parity compiling
 - `git submodule init`
 - `git submodule update --remote`
-- Run `build_parity.sh`
+- Run `build_parity.sh` (you might need your ssh-agent to be setup to pull from core-cbc)
 
 ## Init
 
-- `echo CHOSE_A_PASSWORD > config_run/node0.pwd`
-- `echo CHOSE_A_PASSWORD > config_run/node1.pwd`
+- `echo node0 > config_run/node0.pwd`
+- `echo node1 > config_run/node1.pwd`
 - Run `init_nodes.sh`
 
 This creates two nodes:
@@ -31,8 +31,20 @@ This creates two nodes:
 ## Run
 
 - Run `run_nodes.sh`
+  - One of the node's logs are colored, the other's not.
+  - Log files are saved in `/tmp/parity[n].log`.
+
+## Reset databases
+
+If you wish to reset the nodes DB's, run `clear_db.sh`.
+You'll have to re-run `init_nodes.sh`.
 
 ## Send commands
 
 - Run `send_eth_to_auth0.sh` in order to transfer `0xdeadbeef0001` wei from the user's account to the node0's authority account.
 - Run `send_eth_to_auth1.sh` in order to transfer `0x1337` wei from the user's account to the node1's authority account.
+
+## Test
+
+- Run `test_bc.sh`
+  - Decrease `$SLEEPING_TIME` to increase the chance to have uncles.
