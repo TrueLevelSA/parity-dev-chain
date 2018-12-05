@@ -61,12 +61,14 @@ def main():
     args = parser.parse_args()
 
     enodes = []
+    print('enodes: ')
     with open(args.filename, 'r') as f:
         for line in f.readlines():
             ip = line.strip()
             enode = get_enode(ip)
             if enode is not None:
                 enodes.append((ip, enode))
+                print("{}.\t{}\t{}".format(len(enodes) - 1, ip, enode[:12]))
 
     for enode_a, enode_b in layouts[args.layout](len(enodes)):
         if connect_enode(enodes[enode_a], enodes[enode_b]):
