@@ -12,6 +12,7 @@ port = 8450
 password = ["node0.pwd"]
 [mining]
 engine_signer = "0x00Bd138aBD70e2F00903268F3Db08f2D25677C9e"
+force_sealing = true
 # reseal_on_txs = "none"
 usd_per_tx = "0"
 [misc]
