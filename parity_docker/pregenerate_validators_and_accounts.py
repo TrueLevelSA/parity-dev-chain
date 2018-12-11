@@ -90,6 +90,11 @@ def save(list_users, list_nodes):
     with open(Config._CONFIG_FILE_OUTPUT, 'w+') as f:
         f.write(json.dumps(json.loads(data), indent=4))
 
+    with open("addresses.txt", 'w+') as f:
+        for address in list_nodes:
+            f.write(address)
+            f.write('\n')
+
 def generate_and_save(number_accounts, ip, user_pattern, user_pwd_pattern, node_pattern, node_pwd_pattern):
     list_users, list_nodes = generate_all(number_accounts, ip, user_pattern, user_pwd_pattern, node_pattern, node_pwd_pattern)
     save(list_users, list_nodes)

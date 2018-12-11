@@ -27,16 +27,17 @@ ENV RUST_BACKTRACE 1
 RUN rustc -vV && \
     cargo -V 
 
+ADD https://api.github.com/repos/TrueLevelSA/parity-ethereum/git/refs/heads/$git_branch version.json
+
 # build parity
-RUN git clone https://github.com/TrueLevelSA/parity-ethereum.git parity
-
-RUN cd parity && \
-    git checkout $git_branch && \
-    mkdir -p .cargo && \
-    cargo build --release --verbose 
-
-RUN mv /build/parity/target/release/parity /usr/local/bin
-
+#RUN git clone https://github.com/TrueLevelSA/parity-ethereum.git parity
+#
+#RUN cd parity && \
+#    git checkout $git_branch && \
+#    mkdir -p .cargo && \
+#    cargo build --release --verbose 
+#
+#RUN mv /build/parity/target/release/parity /usr/local/bin
 # RPC port
 EXPOSE 8545
 
@@ -49,8 +50,10 @@ EXPOSE 30303/udp
 
 WORKDIR /run
 
-COPY ./wait_for_signal.sh ./node.pwd ./node.toml ./demo-spec.json ./
+COPY parity /usr/local/bin/parity
+COPY ./wait_for_signal.sh ./node.pwd ./node.toml ./node-no-engine.toml ./demo-spec.json ./
 
+#COPY ../../parity-ethereum/target/release/
 # TODO: change user
 
 ENTRYPOINT [ "/bin/bash",  "./wait_for_signal.sh"]

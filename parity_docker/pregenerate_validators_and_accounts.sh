@@ -8,7 +8,9 @@ function generate_validators_and_accounts {
 
     local -r DOCKER_ID=$(docker run -d tl:parity)
 
-    docker exec -d $DOCKER_ID parity --config node.toml --unsafe-expose
+    docker exec -d $DOCKER_ID parity --config node-no-engine.toml --unsafe-expose
+
+    sleep 2
     local -r IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $DOCKER_ID)
 
     local -r USER_PATTERN=user

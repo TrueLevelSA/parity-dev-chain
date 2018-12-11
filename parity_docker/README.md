@@ -1,6 +1,10 @@
+# Prerequisites
+- Git init stuff from `../README.md`
+- `../build_parity.sh`
+
 # Usage
 - Create a password for your nodes:
-  `echo MYSUPERSECREPASSWORD > docker/node.pwd`
+  `echo node0 > docker/node.pwd`
 - Build the docker image (and go grab a coffee): 
   `build_image.sh`
 - Prepare accounts: 
@@ -9,10 +13,12 @@
 > (and have no new code on the TL parity fork), you can restart from here
 - Start containers: 
   `start_dockers.sh $NUMBER_NODES`
-- Update config files for parity using the pregenerated stuff and start parity:
-  `update_parity_config.sh`
+- Launch parity:
+  `start_parity_config.sh`
 - Generate accounts that match the pregenerated ones:
   `generate_validators_and_accounts.sh`
+- Update config files for parity using the pregenerated stuff and start parity:
+  `update_parity_config.sh`
 - Get the dockers ips and connect them: 
   - `get_ips.sh`
   - `connect_nodes.py --layout ring docker_ips.txt`
