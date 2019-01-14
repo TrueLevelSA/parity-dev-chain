@@ -6,8 +6,10 @@
                 "fault_tolerance_thr": 13.0,
                 "validators": [
                     { "address": "0x0000000000000000000000000000000000000000", "weight":  10},
-                    { "address": "0x00Bd138aBD70e2F00903268F3Db08f2D25677C9e", "weight":  1.2},
-                    { "address": "0x00Aa39d30F0D20FF03a22cCfc30B7EfbFca597C2", "weight": 0.2}
+                    { "address": "0x00Bd138aBD70e2F00903268F3Db08f2D25677C9e", "weight":  1},
+                    { "address": "0x00Aa39d30F0D20FF03a22cCfc30B7EfbFca597C2", "weight": 2},
+                    { "address": "0x002e28950558fbede1a9675cb113f0bd20912019", "weight": 3},
+                    { "address": "0x00a94ac799442fb13de8302026fd03068ba6a428", "weight": 4}
                 ]
             }
         }
@@ -41,6 +43,10 @@
         "0x002227d6a35ed31076546159061bd5d3fefe9f0a": { "balance": "10000000000000000000000" },
         "0x007b9a37d838df0849689a47c7204aaea59dac62": { "balance": "10000000000000000000000" },
         "0x00Aa39d30F0D20FF03a22cCfc30B7EfbFca597C2": { "balance": "10000000000000000000000" },
-        "0x00Bd138aBD70e2F00903268F3Db08f2D25677C9e": { "balance": "10000000000000000000000" }
+        "0x00Bd138aBD70e2F00903268F3Db08f2D25677C9e": { "balance": "10000000000000000000000" },
+        "0x002e28950558fbede1a9675cb113f0bd20912019": { "balance": "10000000000000000000000" },
+        "0x0067b732fee1d6cb0da1c64c0a7ee4a8633a6921": { "balance": "10000000000000000000000" },
+        "0x00a94ac799442fb13de8302026fd03068ba6a428": { "balance": "10000000000000000000000" },
+        "0x00c72487a1ce367813de1757ebfc86c191d6f8c5": { "balance": "10000000000000000000000" }
     }
 }
