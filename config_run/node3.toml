@@ -1,0 +1,22 @@
+[parity]
+chain = "demo-spec.json"
+base_path = "/tmp/parity3"
+[network]
+port = 30303
+[rpc]
+port = 8543
+apis = ["web3", "eth", "net", "personal", "parity", "parity_set", "traces", "rpc", "parity_accounts"]
+[websockets]
+port = 8453
+[ipc]
+disable = true
+[account]
+password = ["node3.pwd"]
+[mining]
+engine_signer = "0x00a94ac799442fb13de8302026fd03068ba6a428"
+# reseal_on_txs = "none"
+usd_per_tx = "0"
+[misc]
+logging = "info"
+log_file = "/tmp/parity3.log"
+color = true

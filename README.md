@@ -18,13 +18,15 @@ Based on [https://github.com/paritytech/wiki/blob/master/Demo-PoA-tutorial.md](h
 
 - `echo node0 > config_run/node0.pwd`
 - `echo node1 > config_run/node1.pwd`
+- `echo node2 > config_run/node2.pwd`
+- `echo node3 > config_run/node3.pwd`
 - Run `init_nodes.sh`
 
 This creates two nodes:
 - `node0` composed of two accounts:
   - `0x00Bd138aBD70e2F00903268F3Db08f2D25677C9e`, an authority account
   - `0x007b9a37d838df0849689a47c7204aaea59dac62`, a user account
-- `node1` composed of two accounts: 
+- `node1` composed of two accounts:
   - `0x00Aa39d30F0D20FF03a22cCfc30B7EfbFca597C2`, an authority account
   - `0x002227d6a35ed31076546159061bd5d3fefe9f0a`, a user account
 
