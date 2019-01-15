@@ -29,6 +29,13 @@ This creates two nodes:
 - `node1` composed of two accounts:
   - `0x00Aa39d30F0D20FF03a22cCfc30B7EfbFca597C2`, an authority account
   - `0x002227d6a35ed31076546159061bd5d3fefe9f0a`, a user account
+- `node2` composed of two accounts:
+  - `0x002e28950558fbede1a9675cb113f0bd20912019`, an authority account
+  - `0x0067b732fee1d6cb0da1c64c0a7ee4a8633a6921`, a user account
+- `node3` composed of two accounts:
+  - `0x00a94ac799442fb13de8302026fd03068ba6a428`, an authority account
+  - `0x00c72487a1ce367813de1757ebfc86c191d6f8c5`, a user account
+
 
 ## Run
 
